@@ -5,7 +5,7 @@ const axiosInstance = axios.create({
   // baseURL : "not-working"
   
   //  using render
-    baseURL :'https://amazon-api-deploy-35q7.onrender.com'
+    baseURL :"https://amazon-api-deploy-35q7.onrender.com"
 });
 
 export { axiosInstance };

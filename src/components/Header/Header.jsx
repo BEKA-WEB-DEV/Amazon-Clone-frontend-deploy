@@ -10,7 +10,9 @@ import { auth } from '../../Utility/firebase';
 
 const Header = () => {
     const[{basket, user}, dispatch] = useContext(DataContext)
-    const totalItems = basket?.reduce((amount, item) => item.amount + amount, 0)
+    const totalItems = basket?.reduce((amount, item) => {
+            return item.amount + amount;
+    }, 0);
     return (
         <section className={classes.fixed}> 
             <section className="header">

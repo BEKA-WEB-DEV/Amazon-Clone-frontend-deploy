@@ -14,8 +14,9 @@ const Header = () => {
             return item.amount + amount
     }, 0);
     return (
+
         <section className={classes.fixed}> 
-            <section className="header">
+
                 <div className={classes.header__container}>
                     <div className={classes.logo__container}>
                         <Link to="/" className="logo"><img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon Logo" /></Link>
@@ -90,9 +91,9 @@ const Header = () => {
                         
                     </div>
                 </div>
-            </section>
-
+                
             <LowerHeader />
+
         </section>
     );
 }

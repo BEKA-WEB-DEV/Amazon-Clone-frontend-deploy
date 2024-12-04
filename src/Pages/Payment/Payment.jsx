@@ -18,7 +18,7 @@ import { ClipLoader } from 'react-spinners'
 function Payment() {
 
 const [{ user, basket }, dispatch] = useContext(DataContext);
-  console.log(user);
+  // console.log(user);
 
   const totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount;

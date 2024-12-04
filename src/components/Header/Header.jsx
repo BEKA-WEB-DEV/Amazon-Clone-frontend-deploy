@@ -9,10 +9,11 @@ import { DataContext } from '../DataProvider/DataProvider';
 import { auth } from '../../Utility/firebase';
 
 const Header = () => {
-    const[{basket, user}, dispatch] = useContext(DataContext)
-    const totalItems = basket?.reduce((amount, item) => {
-            return item.amount + amount
+    const[{basket, user}, dispatch] = useContext(DataContext);
+    const totalItem = basket?.reduce((amount, item) => {
+            return item.amount + amount;
     }, 0);
+    
     return (
 
         <section className={classes.fixed}> 
@@ -85,7 +86,7 @@ const Header = () => {
                             {/* Cart */}
                             <Link to="/cart" className={classes.cart}>
                                 <BiCart size={35} />
-                                <span>{totalItems}</span>
+                                <span>{totalItem}</span>
                             </Link>
                         
                         

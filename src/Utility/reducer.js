@@ -33,8 +33,17 @@ export const reducer = (state, action) => {
             }
 
         case Type.SET_USER:
-            return {...state, user : action.user}
+            return {
+                ...state, 
+                user : action.user
+            }
+    
+        case Type.EMPTY_BASKET : 
+            return{
+                ...state,
+                basket : []
 
+            }
         default:
             return state;
     }

@@ -73,12 +73,9 @@ const [{ user, basket }, dispatch] = useContext(DataContext);
           basket,
           amount: paymentIntent.amount,
           created: paymentIntent.created,
-        }) .catch((err)=>{
-        console.log(err.message)
-      })
+        })
       // empty the basket
       dispatch({ type: Type.EMPTY_BASKET });
-
       setProcessing(false);
       navigate("/orders", { state: { msg: "you have placed new Order" }});
     } catch (error) {

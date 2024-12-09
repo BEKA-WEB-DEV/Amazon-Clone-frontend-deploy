@@ -1,23 +1,22 @@
-import React from 'react'
-import classes from './Payment.module.css'
-import LayOut from '../../components/LayOut/LayOut'
+import React from "react";
+import classes from "./Payment.module.css";
+import LayOut from "../../components/LayOut/LayOut";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import { useState, useContext} from "react";
+import { useState, useContext } from "react";
 import { DataContext } from "../../components/DataProvider/DataProvider";
 // import { Link } from "react-router-dom";
 import ProductCard from "../../components/Product/ProductCard";
 // import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { Type } from "../../Utility/action.type";
-import {axiosInstance} from '../../Api/axios';
-import { db } from '../../Utility/firebase';
-import CurrencyFormat from '../../components/CurrencyFormat/CurrencyFormat'
+import { axiosInstance } from "../../Api/axios";
+import { db } from "../../Utility/firebase";
+import CurrencyFormat from "../../components/CurrencyFormat/CurrencyFormat";
 // import Loader from '../../components/Loader/Loader'
-import { ClipLoader } from 'react-spinners'
+import { ClipLoader } from "react-spinners";
 
 function Payment() {
-
-const [{ user, basket }, dispatch] = useContext(DataContext);
+  const [{ user, basket }, dispatch] = useContext(DataContext);
   // console.log(user);
 
   const totalItem = basket?.reduce((amount, item) => {
@@ -62,7 +61,7 @@ const [{ user, basket }, dispatch] = useContext(DataContext);
       });
 
       // console.log(paymentIntent);
-      
+
       // 3. after the confirmation --> order firestore database save, clear basket
       await db
         .collection("users")
@@ -73,20 +72,16 @@ const [{ user, basket }, dispatch] = useContext(DataContext);
           basket,
           amount: paymentIntent.amount,
           created: paymentIntent.created,
-        })
+        });
       // empty the basket
       dispatch({ type: Type.EMPTY_BASKET });
       setProcessing(false);
-      navigate("/orders", { state: { msg: "you have placed new Order" }});
+      navigate("/orders", { state: { msg: "you have placed new Order" } });
     } catch (error) {
       console.log(error);
       setProcessing(false);
     }
   };
-
-
-
-
 
   return (
     <LayOut>
@@ -155,7 +150,7 @@ const [{ user, basket }, dispatch] = useContext(DataContext);
         </div>
       </section>
     </LayOut>
-  )
+  );
 }
 
-export default Payment
+export default Payment;

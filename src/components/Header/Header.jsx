@@ -86,8 +86,8 @@ const Header = () => {
                             {/* Cart */}
                             <Link to="/cart" className={classes.cart}>
                                 <BiCart size={35} />
-                                <span>{totalItem}</span>
-                                {/* <span>{basket?.length}</span> */}
+                                {/* <span>{totalItem}</span> */}
+                                <span>{basket?.length}</span>
                             </Link>
                         
                         
